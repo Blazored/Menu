@@ -1,3 +1,3 @@
 # Blazored Menu
 
-**Currently a Work In Progress**
+Currently status: **Work In Progress**

@@ -1,0 +1,25 @@
+﻿.blazored-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.blazored-menu > ul > li {
+    padding: 0 1rem .5rem 1rem;
+    color: #fff;
+}
+
+.blazored-menu > ul > li a {
+    color: #fff;
+}
+
+.blazored-menu > ul > li.sub-menu-header {
+    cursor: pointer;
+}
+
+.blazored-menu .hidden {
+    display: none;
+}
+
+.blazored-menu .visible {
+    display: block;
+}

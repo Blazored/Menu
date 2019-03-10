@@ -2,7 +2,7 @@
 
 namespace Blazored.Menu
 {
-    public class SubMenuBase : ComponentBase
+    public class BlazoredSubMenuBase : ComponentBase
     {
         [Parameter] protected string Header { get; set; }
         [Parameter] protected string IconClass { get; set; }

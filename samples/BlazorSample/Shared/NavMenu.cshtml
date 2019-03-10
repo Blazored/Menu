@@ -6,63 +6,46 @@
 </div>
 
 <BlazoredMenu>
-    <BmItem>
-        <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-            <span class="oi oi-home" aria-hidden="true"></span> Home
-        </NavLink>
-    </BmItem>
-    <BmItem>
-        <NavLink class="nav-link" href="counter">
-            <span class="oi oi-plus" aria-hidden="true"></span> Counter
-        </NavLink>
-    </BmItem>
-    <SubMenu Header="Sub Menu">
-        <BmItem>
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </BmItem>
-        <BmItem>
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </BmItem>
-    </SubMenu>
-    <BmItem>
-        <NavLink class="nav-link" href="fetchdata">
-            <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-        </NavLink>
-    </BmItem>
+    <BlazoredMenuItem>
+        <NavLink href="" Match="NavLinkMatch.All">Home</NavLink>
+    </BlazoredMenuItem>
+    <BlazoredMenuItem>
+        <NavLink href="counter">Counter</NavLink>
+    </BlazoredMenuItem>
+    <BlazoredSubMenu Header="Sub Menu">
+        <BlazoredMenuItem>
+            <NavLink href="counter">Counter</NavLink>
+        </BlazoredMenuItem>
+        <BlazoredMenuItem>
+            <NavLink href="fetchdata">Fetch data</NavLink>
+        </BlazoredMenuItem>
+    </BlazoredSubMenu>
+    <BlazoredMenuItem>
+        <NavLink href="fetchdata">Fetch data</NavLink>
+    </BlazoredMenuItem>
 </BlazoredMenu>
 
+<BlazoredMenu MenuBuilder="@Menu" />
 
-@*<div class="@NavMenuCssClass" onclick="@ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-    </ul>
-</div>*@
 
 @functions {
     bool collapseNavMenu = true;
 
     string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
+    MenuBuilder Menu = new MenuBuilder();
+
     void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    protected override void OnInit()
+    {
+        Menu.AddItem(1, "Home", "/")
+            .AddItem(2, "Counter", "counter")
+            .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
+                                                        .AddItem(2, "Fetch Data", "fetchdata"))
+            .AddItem(4, "FetchData", "fetchdata");
     }
 }

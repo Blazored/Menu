@@ -13,26 +13,30 @@ namespace Blazored.Menu
             _menuItems = new List<MenuItem>();
         }
 
-        public MenuBuilder AddItem(int position, string title, string link)
+        public MenuBuilder AddItem(int position, string title, string link, bool IsVisible = true, bool IsEnabled = true)
         {
             var menuItem = new MenuItem();
             menuItem.Position = position;
             menuItem.Title = title;
             menuItem.Link = link;
             menuItem.IsSubMenu = false;
+            menuItem.IsVisible = IsVisible;
+            menuItem.IsEnabled = IsEnabled;
 
             _menuItems.Add(menuItem);
 
             return this;
         }
 
-        public MenuBuilder AddSubMenu(int position, string title, MenuBuilder menuItems)
+        public MenuBuilder AddSubMenu(int position, string title, MenuBuilder menuItems, bool IsVisible = true, bool IsEnabled = true)
         {
             var menuItem = new MenuItem();
             menuItem.Position = position;
             menuItem.IsSubMenu = true;
             menuItem.Title = title;
             menuItem.MenuItems = menuItems;
+            menuItem.IsVisible = IsVisible;
+            menuItem.IsEnabled = IsEnabled;
 
             _menuItems.Add(menuItem);
             return this;
@@ -53,5 +57,7 @@ namespace Blazored.Menu
         public string Link { get; set; }
         public MenuBuilder MenuItems { get; set; }
         public bool IsSubMenu { get; set; }
+        public bool IsVisible { get; set; }
+        public bool IsEnabled { get; set; }
     }
 }

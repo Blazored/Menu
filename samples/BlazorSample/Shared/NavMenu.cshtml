@@ -1,8 +1,5 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">BlazorSample</a>
-    <button class="navbar-toggler" onclick="@ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 </div>
 
 <BlazoredMenu>
@@ -25,27 +22,19 @@
     </BlazoredMenuItem>
 </BlazoredMenu>
 
-<BlazoredMenu MenuBuilder="@Menu" />
+<BlazoredMenu MenuBuilder="@MenuBuilder" />
 
 
 @functions {
-    bool collapseNavMenu = true;
-
-    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    MenuBuilder Menu = new MenuBuilder();
-
-    void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
+    MenuBuilder MenuBuilder = new MenuBuilder();
 
     protected override void OnInit()
     {
-        Menu.AddItem(1, "Home", "/")
-            .AddItem(2, "Counter", "counter")
-            .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
-                                                        .AddItem(2, "Fetch Data", "fetchdata"))
-            .AddItem(4, "FetchData", "fetchdata");
+        MenuBuilder.AddItem(1, "Home", "/")
+                   .AddItem(2, "Counter", "counter", IsEnabled: false)
+                   .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
+                                                               .AddItem(2, "Fetch Data", "fetchdata", IsEnabled: false)
+                                                               .AddItem(3, "You Can't See Me", "invisible", IsVisible: false))
+                   .AddItem(4, "FetchData", "fetchdata");
     }
 }

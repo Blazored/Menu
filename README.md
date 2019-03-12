@@ -10,3 +10,86 @@ There is currently an issue with [ASP.NET Core Razor Components apps](https://de
 You can still use this package, however, you will need to manually add the JavaScript file to your Razor Components `wwwroot` folder. Then you will need to reference it in your `index.html`.
 
 Alternatively, there is a great package by [Mister Magoo](https://github.com/SQL-MisterMagoo/BlazorEmbedLibrary) which offers a solution to this problem without having to manually copy files.
+
+## Getting Setup
+You can install the package via the nuget package manager just search for *Blazored.Menu*. You can also install via powershell using the following command.
+
+```powershell
+Install-Package Blazored.Menu
+```
+
+Or via the dotnet CLI.
+
+```bash
+dotnet add package Blazored.Menu
+```
+
+### Add Imports
+Add the following to your *_ViewImports.cshtml*
+
+```csharp
+@using Blazored.Menu
+
+@addTagHelper *, Blazored.Menu
+```
+
+## Usage
+Blazored Menu allows menus to be built either using markup or dynamically, using the `MenuBuilder`.
+
+### Building a menu with markup
+You can build your menus using the following components.
+
+- BlazoredMenu
+- BlazoredMenuItem
+- BlazoredSubMenu
+
+For example.
+
+```html
+<BlazoredMenu>
+  <BlazoredMenuItem>
+    <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
+  </BlazoredMenuItem>
+  <BlazoredSubMenu Header="Sub Menu">
+        <BlazoredMenuItem>
+            <NavLink href="counter">Counter</NavLink>
+        </BlazoredMenuItem>
+    </BlazoredSubMenu>
+    <BlazoredMenuItem>
+        <NavLink href="fetchdata">Fetch data</NavLink>
+    </BlazoredMenuItem>
+</BlazoredMenu>
+```
+
+### Building a menu dynamically using the MenuBuilder
+If you prefer you can use the `MenuBuilder` to create your menus using C#. The `MenuBuilder` exposes two methods `AddItem` and `AddSubMenu`. You can build the same menu from the markup example as follows.
+
+```html
+<BlazoredMenu MenuBuilder="@MenuBuilder" />
+
+@functions {
+    MenuBuilder MenuBuilder = new MenuBuilder();
+
+    protected override void OnInit()
+    {
+        MenuBuilder.AddItem(1, "Home", "/")
+                   .AddSubMenu(2, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
+                   .AddItem(3, "FetchData", "fetchdata");
+    }
+}
+```
+
+### MenuBuilder Options
+When using the `MenuBuilder` you have a couple of extra options available via the `AddItem` and `AddSubMenu` methods. 
+
+- IsEnabled (default: true)
+- IsVisible (default: true)
+
+You can use these options to manipulate your menu items. `IsVisible`, if set to `false`, will mark your menu items as `display: none` making them invisible. Setting `IsEnabled` to `false` will render the item in a non-interactive state.
+
+
+
+
+
+
+

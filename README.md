@@ -4,7 +4,7 @@ A JavaScript free menu library for Blazor and Razor Components applications.
 
 [![Build Status](https://dev.azure.com/blazored/Menu/_apis/build/status/Blazored.Menu?branchName=master)](https://dev.azure.com/blazored/Menu/_build/latest?definitionId=7&branchName=master)
 
-![Nuget](https://img.shields.io/nuget/v/blazored.menu.svg)
+[![Nuget](https://img.shields.io/nuget/v/blazored.menu.svg)](https://www.nuget.org/packages/Blazored.Menu/)
 
 ## Important Notice For ASP.NET Core Razor Components Apps
 There is currently an issue with [ASP.NET Core Razor Components apps](https://devblogs.microsoft.com/aspnet/aspnet-core-3-preview-2/#sharing-component-libraries) (not Blazor). They are unable to import static assets from component libraries such as this one. 

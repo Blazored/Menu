@@ -30,11 +30,11 @@
 
     protected override void OnInit()
     {
-        MenuBuilder.AddItem(1, "Home", "/")
-                   .AddItem(2, "Counter", "counter", IsEnabled: false)
+        MenuBuilder.AddItem(1, "Home", "/", match: NavLinkMatch.All)
+                   .AddItem(2, "Counter", "counter", isEnabled: false)
                    .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
-                                                               .AddItem(2, "Fetch Data", "fetchdata", IsEnabled: false)
-                                                               .AddItem(3, "You Can't See Me", "invisible", IsVisible: false))
+                                                               .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
+                                                               .AddItem(3, "You Can't See Me", "invisible", isVisible: false))
                    .AddItem(4, "FetchData", "fetchdata");
     }
 }

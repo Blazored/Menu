@@ -1,0 +1,40 @@
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">BlazorSample</a>
+</div>
+
+<BlazoredMenu>
+    <BlazoredMenuItem>
+        <NavLink href="" Match="NavLinkMatch.All">Home</NavLink>
+    </BlazoredMenuItem>
+    <BlazoredMenuItem>
+        <NavLink href="counter">Counter</NavLink>
+    </BlazoredMenuItem>
+    <BlazoredSubMenu Header="Sub Menu">
+        <BlazoredMenuItem>
+            <NavLink href="counter">Counter</NavLink>
+        </BlazoredMenuItem>
+        <BlazoredMenuItem>
+            <NavLink href="fetchdata">Fetch data</NavLink>
+        </BlazoredMenuItem>
+    </BlazoredSubMenu>
+    <BlazoredMenuItem>
+        <NavLink href="fetchdata">Fetch data</NavLink>
+    </BlazoredMenuItem>
+</BlazoredMenu>
+
+<BlazoredMenu MenuBuilder="@MenuBuilder" />
+
+
+@functions {
+    MenuBuilder MenuBuilder = new MenuBuilder();
+
+    protected override void OnInit()
+    {
+        MenuBuilder.AddItem(1, "Home", "/", match: NavLinkMatch.All)
+                   .AddItem(2, "Counter", "counter", isEnabled: false)
+                   .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
+                                                               .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
+                                                               .AddItem(3, "You Can't See Me", "invisible", isVisible: false))
+                   .AddItem(4, "FetchData", "fetchdata");
+    }
+}

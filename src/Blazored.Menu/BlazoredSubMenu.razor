@@ -1,8 +1,21 @@
 ﻿@inherits BlazoredSubMenuBase
 
-<li class="blazored-sub-menu-header @(IsOpen ? "open" : string.Empty)">
-    <span onclick="@ToggleSubMenu"><i onclick="@ToggleSubMenu">@Icon</i> @Header</span>
+<li class="@CssString" disabled="@(!IsEnabled)">
+    <span onclick="@ToggleSubMenu"><i>@Icon</i> @Header</span>
     <ul class="blazored-sub-menu">
-        @ChildContent
+        @if (ChildContent != null)
+        {
+            @ChildContent
+        }
+        else
+        {
+            foreach (var item in MenuItems)
+            {
+                if (item.IsVisible)
+                {
+                    <BlazoredMenuItem MenuItem="@item" />
+                }
+            }
+        }
     </ul>
 </li>

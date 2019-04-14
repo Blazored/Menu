@@ -1,0 +1,7 @@
+﻿<li class="@(IsEnabled ? string.Empty : "disabled") @(IsVisible ? string.Empty : "hidden")">@ChildContent</li>
+
+@functions {
+    [Parameter] RenderFragment ChildContent { get; set; }
+    [Parameter] bool IsEnabled { get; set; } = true;
+    [Parameter] bool IsVisible { get; set; } = true;
+}

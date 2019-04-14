@@ -9,13 +9,18 @@
     <BlazoredMenuItem>
         <NavLink href="counter">Counter</NavLink>
     </BlazoredMenuItem>
-    <BlazoredSubMenu Header="Sub Menu">
-        <BlazoredMenuItem>
-            <NavLink href="counter">Counter</NavLink>
-        </BlazoredMenuItem>
-        <BlazoredMenuItem>
-            <NavLink href="fetchdata">Fetch data</NavLink>
-        </BlazoredMenuItem>
+    <BlazoredSubMenu>
+        <HeaderTemplate>
+            <text>Sub Menu</text>
+        </HeaderTemplate>
+        <MenuTemplate>
+            <BlazoredMenuItem>
+                <NavLink href="counter">Counter</NavLink>
+            </BlazoredMenuItem>
+            <BlazoredMenuItem>
+                <NavLink href="fetchdata">Fetch data</NavLink>
+            </BlazoredMenuItem>
+        </MenuTemplate>
     </BlazoredSubMenu>
     <BlazoredMenuItem>
         <NavLink href="fetchdata">Fetch data</NavLink>

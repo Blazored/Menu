@@ -8,6 +8,8 @@ namespace Blazored.Menu
         [Parameter] protected string Header { get; set; }
         [Parameter] protected string IconClass { get; set; }
         [Parameter] protected RenderFragment ChildContent { get; set; }
+        [Parameter] protected RenderFragment HeaderTemplate { get; set; }
+        [Parameter] protected RenderFragment MenuTemplate { get; set; } 
         [Parameter] protected string Css { get; set; }
         [Parameter] protected bool IsEnabled { get; set; } = true;
         [Parameter] protected IEnumerable<MenuItem> MenuItems { get; set; } = new List<MenuItem>();

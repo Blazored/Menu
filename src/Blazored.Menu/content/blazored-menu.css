@@ -3,68 +3,61 @@
     padding: 1rem 0;
 }
 
-.blazored-menu li.hidden {
-    display: none;
-}
+    .blazored-menu li.hidden {
+        display: none;
+    }
 
     .blazored-menu li a {
         display: block;
         padding: .75rem 1rem;
-        color: #e3e3e3;
+        color: #333;
         cursor: pointer;
     }
 
         .blazored-menu li a:hover {
-            background: #555;
-            color: #f5f5f5;
+            text-decoration: underline;
         }
 
-    .blazored-menu li a.active {
-        background: #777;
-        color: #fff;
-    }
+        .blazored-menu li a.active {
+            color: #333;
+        }
 
     .blazored-menu .disabled {
         display: block;
         padding: .75rem 1rem;
-        color: #999;
+        color: #d6d5d5;
         cursor: not-allowed;
-        background: #333;
     }
 
 .blazored-sub-menu-header {
     display: block;
-    padding: .75rem 1rem;
-    color: #fff;
+    color: #333;
     cursor: pointer;
 }
 
-    .blazored-sub-menu-header:hover {
-        background: #555;
-        color: #f5f5f5;
+    .blazored-sub-menu-header span:hover {
+        text-decoration: underline;
     }
 
-.blazored-sub-menu-header span {
-    display: block;
-    position: relative;
-}
-
-.blazored-sub-menu-header span i {
-    position: absolute;
-    right: 0;
-}
-
-    .blazored-sub-menu-header.open {
-        background: #222;
+    .blazored-sub-menu-header span {
+        display: block;
+        padding: .75rem 1rem;
+        position: relative;
     }
+
+        .blazored-sub-menu-header span i {
+            position: absolute;
+            right: 0;
+        }
 
     .blazored-sub-menu-header.open span {
         padding-bottom: .75rem;
-    } 
+    }
 
 .blazored-sub-menu {
     display: none;
     padding: 0;
+    margin-left: 1rem;
     list-style: none;
 }
 

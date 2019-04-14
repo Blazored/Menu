@@ -20,7 +20,7 @@ else
                 }
                 else if (!item.IsSubMenu && item.IsVisible)
                 {
-                    <BlazoredMenuItem MenuItem="@item" />
+                    <BlazoredMenuItem MenuItem="@item" IsEnabled="@item.IsEnabled" />
                 }
             }
         </ul>

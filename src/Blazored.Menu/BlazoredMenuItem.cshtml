@@ -2,15 +2,24 @@
 
 @if (ChildContent != null)
 {
-    <li class="@CssString">
+    <li class="@CssString" disabled="@(!IsEnabled)">
         @ChildContent
     </li>
 }
 else
 {
-    <li class="@CssString">
-        <NavLink href="@MenuItem.Link" Match="@MenuItem.Match">
+    if (IsEnabled)
+    {
+        <li class="@CssString">
+            <NavLink href="@MenuItem.Link" Match="@MenuItem.Match">
+                @MenuItem.Title
+            </NavLink>
+        </li>
+    }
+    else
+    {
+        <li class="@CssString" disabled>
             @MenuItem.Title
-        </NavLink>
-    </li>
+        </li>
+    }
 }

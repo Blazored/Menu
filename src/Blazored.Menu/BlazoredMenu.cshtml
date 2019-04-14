@@ -1,0 +1,28 @@
+﻿@inherits BlazoredMenuBase
+
+@if (ChildContent != null)
+{
+    <nav role="navigation" class="blazored-menu-container @Css">
+        <ul class="blazored-menu">
+            @ChildContent
+        </ul>
+    </nav>
+}
+else
+{
+    <nav role="navigation" class="blazored-menu-container @Css">
+        <ul class="blazored-menu">
+            @foreach (var item in MenuBuilder.Build(x => x.Position))
+            {
+                @if (item.IsSubMenu && item.IsVisible)
+                {
+                    <BlazoredSubMenu Header="@item.Title" IsEnabled="@item.IsEnabled" MenuItems="@item.MenuItems.Build(x => x.Position)" />
+                }
+                else if (!item.IsSubMenu && item.IsVisible)
+                {
+                    <BlazoredMenuItem MenuItem="@item" IsEnabled="@item.IsEnabled" />
+                }
+            }
+        </ul>
+    </nav>
+}

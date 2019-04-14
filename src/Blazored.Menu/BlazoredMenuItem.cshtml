@@ -1,7 +1,25 @@
-﻿<li class="@(IsEnabled ? string.Empty : "disabled") @(IsVisible ? string.Empty : "hidden")">@ChildContent</li>
+﻿@inherits BlazoredMenuItemBase
 
-@functions {
-    [Parameter] RenderFragment ChildContent { get; set; }
-    [Parameter] bool IsEnabled { get; set; } = true;
-    [Parameter] bool IsVisible { get; set; } = true;
+@if (ChildContent != null)
+{
+    <li class="@CssString" disabled="@(!IsEnabled)">
+        @ChildContent
+    </li>
+}
+else
+{
+    if (IsEnabled)
+    {
+        <li class="@CssString">
+            <NavLink href="@MenuItem.Link" Match="@MenuItem.Match">
+                @MenuItem.Title
+            </NavLink>
+        </li>
+    }
+    else
+    {
+        <li class="@CssString" disabled>
+            @MenuItem.Title
+        </li>
+    }
 }

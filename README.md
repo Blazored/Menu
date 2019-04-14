@@ -53,15 +53,71 @@ For example.
     <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
   </BlazoredMenuItem>
   <BlazoredSubMenu Header="Sub Menu">
-        <BlazoredMenuItem>
-            <NavLink href="counter">Counter</NavLink>
-        </BlazoredMenuItem>
+        <MenuTemplate>
+            <BlazoredMenuItem>
+                <NavLink href="counter">Counter</NavLink>
+            </BlazoredMenuItem>
+        </MenuTemplate>
     </BlazoredSubMenu>
     <BlazoredMenuItem>
         <NavLink href="fetchdata">Fetch data</NavLink>
     </BlazoredMenuItem>
 </BlazoredMenu>
 ```
+
+You can also specify your own template for sub menu headers like so.
+
+```html
+<BlazoredMenu>
+  <BlazoredMenuItem>
+    <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
+  </BlazoredMenuItem>
+  <BlazoredSubMenu Header="Sub Menu">
+        <HeaderTemplate>
+            <i class="my-cool-icon-class"></i> Sub Menu
+        </HeaderTemplate>
+        <MenuTemplate>
+            <BlazoredMenuItem>
+                <NavLink href="counter">Counter</NavLink>
+            </BlazoredMenuItem>
+            <BlazoredMenuItem>
+                <NavLink href="fetchdata">Fetch data</NavLink>
+            </BlazoredMenuItem>
+        </MenuTemplate>
+    </BlazoredSubMenu>
+</BlazoredMenu>
+```
+
+_This feature is currently only available when building menus with markup._
+
+You can also supply your own CSS classes to each of the 3 components
+- BlazoredMenu
+- BlazoredMenuItem
+- BlazoredSubMenu
+
+By setting the `Css` parameter.
+
+```html
+<BlazoredMenu Css="custom-menu-css">
+  <BlazoredMenuItem Css="custom-menuitem-css">
+    <NavLink href="/" Match="NavLinkMatch.All">Home</NavLink>
+  </BlazoredMenuItem>
+  <BlazoredSubMenu Header="Sub Menu" Css="custom-submenu-css">
+        <HeaderTemplate>
+            <i class="my-cool-icon-class"></i> Sub Menu
+        </HeaderTemplate>
+        <MenuTemplate>
+            <BlazoredMenuItem>
+                <NavLink href="counter">Counter</NavLink>
+            </BlazoredMenuItem>
+            <BlazoredMenuItem>
+                <NavLink href="fetchdata">Fetch data</NavLink>
+            </BlazoredMenuItem>
+        </MenuTemplate>
+    </BlazoredSubMenu>
+</BlazoredMenu>
+```
+
 
 ### Building a menu dynamically using the MenuBuilder
 If you prefer you can use the `MenuBuilder` to create your menus using C#. The `MenuBuilder` exposes two methods `AddItem` and `AddSubMenu`. You can build the same menu from the markup example as follows.

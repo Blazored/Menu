@@ -3,11 +3,11 @@
     <li class="@CssString" disabled="@(!IsEnabled)">
         @if (HeaderTemplate != null)
         {
-            <span onclick="@ToggleSubMenu">@HeaderTemplate <i>@Icon</i></span>
+            <span @onclick="ToggleSubMenu">@HeaderTemplate <i>@Icon</i></span>
         }
         else
         {
-            <span onclick="@ToggleSubMenu">@Header <i>@Icon</i></span>
+            <span @onclick="ToggleSubMenu">@Header <i>@Icon</i></span>
         }
 
         <ul class="blazored-sub-menu">

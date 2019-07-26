@@ -16,14 +16,16 @@ namespace Blazored.Menu
 
         public MenuBuilder AddItem(int position, string title, string link, NavLinkMatch match = NavLinkMatch.Prefix, bool isVisible = true, bool isEnabled = true)
         {
-            var menuItem = new MenuItem();
-            menuItem.Position = position;
-            menuItem.Title = title;
-            menuItem.Link = link;
-            menuItem.Match = match;
-            menuItem.IsSubMenu = false;
-            menuItem.IsVisible = isVisible;
-            menuItem.IsEnabled = isEnabled;
+            var menuItem = new MenuItem
+            {
+                Position = position,
+                Title = title,
+                Link = link,
+                Match = match,
+                IsSubMenu = false,
+                IsVisible = isVisible,
+                IsEnabled = isEnabled
+            };
 
             _menuItems.Add(menuItem);
 

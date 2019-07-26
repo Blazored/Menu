@@ -1,4 +1,4 @@
-<div class="top-row pl-4 navbar navbar-dark">
+﻿<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">BlazorSample</a>
 </div>
 
@@ -9,13 +9,18 @@
     <BlazoredMenuItem>
         <NavLink href="counter">Counter</NavLink>
     </BlazoredMenuItem>
-    <BlazoredSubMenu Header="Sub Menu">
-        <BlazoredMenuItem>
-            <NavLink href="counter">Counter</NavLink>
-        </BlazoredMenuItem>
-        <BlazoredMenuItem>
-            <NavLink href="fetchdata">Fetch data</NavLink>
-        </BlazoredMenuItem>
+    <BlazoredSubMenu>
+        <HeaderTemplate>
+            <text>Sub Menu</text>
+        </HeaderTemplate>
+        <MenuTemplate>
+            <BlazoredMenuItem>
+                <NavLink href="counter">Counter</NavLink>
+            </BlazoredMenuItem>
+            <BlazoredMenuItem>
+                <NavLink href="fetchdata">Fetch data</NavLink>
+            </BlazoredMenuItem>
+        </MenuTemplate>
     </BlazoredSubMenu>
     <BlazoredMenuItem>
         <NavLink href="fetchdata">Fetch data</NavLink>
@@ -25,7 +30,7 @@
 <BlazoredMenu MenuBuilder="@MenuBuilder" />
 
 
-@functions {
+@code {
     MenuBuilder MenuBuilder = new MenuBuilder();
 
     protected override void OnInit()

@@ -27,12 +27,10 @@ You will need to add the following line to you `_Host.cshtml` files head tag.
 ```
 
 ### Add Imports
-Add the following to your *_ViewImports.cshtml*
+Add the following to your *_Imports.razor*
 
 ```csharp
-@using Blazored.Menu
-
-@addTagHelper *, Blazored.Menu
+@using Blazored.Men
 ```
 
 ## Usage

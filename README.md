@@ -19,8 +19,8 @@ Or via the dotnet CLI.
 dotnet add package Blazored.Menu
 ```
 
-### Server-side Blazor
-You will need to add the following line to you `_Host.cshtml` files head tag.
+### Add reference to style sheet
+Add the following line to the `head` tag of your `index.html` (Blazor WebAssembly App) or `_Host.cshtml` (Blazor Server app).
 
 ```
 <link href="_content/Blazored.Menu/blazored-menu.css" rel="stylesheet" />
@@ -30,7 +30,7 @@ You will need to add the following line to you `_Host.cshtml` files head tag.
 Add the following to your *_Imports.razor*
 
 ```csharp
-@using Blazored.Men
+@using Blazored.Menu
 ```
 
 ## Usage

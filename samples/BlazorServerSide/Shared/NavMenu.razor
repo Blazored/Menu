@@ -1,5 +1,5 @@
 <div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">BlazorSample</a>
+    <a class="navbar-brand" href="">Blazor Server App</a>
 </div>
 
 <BlazoredMenu>
@@ -28,7 +28,7 @@
 @code {
     MenuBuilder MenuBuilder = new MenuBuilder();
 
-    protected override void OnInit()
+    protected override void OnInitialized()
     {
         MenuBuilder.AddItem(1, "Home", "/", match: NavLinkMatch.All)
                    .AddItem(2, "Counter", "counter", isEnabled: false)

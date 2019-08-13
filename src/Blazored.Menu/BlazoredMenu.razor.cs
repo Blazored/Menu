@@ -5,9 +5,9 @@ namespace Blazored.Menu
 {
     public class BlazoredMenuBase : ComponentBase
     {
-        [Parameter] protected RenderFragment ChildContent { get; set; }
-        [Parameter] protected MenuBuilder MenuBuilder { get; set; }
-        [Parameter] protected string Css { get; set; }
+        [Parameter] public RenderFragment ChildContent { get; set; }
+        [Parameter] public MenuBuilder MenuBuilder { get; set; }
+        [Parameter] public string Css { get; set; }
 
         protected override void OnParametersSet()
         {

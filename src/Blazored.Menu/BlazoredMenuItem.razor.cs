@@ -4,11 +4,11 @@ namespace Blazored.Menu
 {
     public class BlazoredMenuItemBase : ComponentBase
     {
-        [Parameter] protected RenderFragment ChildContent { get; set; }
-        [Parameter] protected bool IsEnabled { get; set; } = true;
-        [Parameter] protected bool IsVisible { get; set; } = true;
-        [Parameter] protected string Css { get; set; } = string.Empty;
-        [Parameter] protected MenuItem MenuItem { get; set; }
+        [Parameter] public RenderFragment ChildContent { get; set; }
+        [Parameter] public bool IsEnabled { get; set; } = true;
+        [Parameter] public bool IsVisible { get; set; } = true;
+        [Parameter] public string Css { get; set; } = string.Empty;
+        [Parameter] public MenuItem MenuItem { get; set; }
 
         protected string CssString
         {

@@ -8,7 +8,7 @@
     <Authors>Chris Sainty</Authors>
     <Company></Company>
     <Copyright>Copyright 2018 (c) Chris Sainty. All rights reserved.</Copyright>
-    <PackageLicenseUrl>https://github.com/Blazored/Menu/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Blazored/Menu</PackageProjectUrl>
     <PackageIconUrl>https://avatars1.githubusercontent.com/u/39194025</PackageIconUrl>
     <RepositoryUrl>https://github.com/Blazored/Menu</RepositoryUrl>
@@ -16,12 +16,12 @@
     <PackageTags>Blazored Blazor Razor Components Menu</PackageTags>
     <Description>A JavaScript free menu library for Blazor and Razor Components applications.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.2</Version>
+    <Version>2.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0-preview8.19405.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.0.0-preview8.19405.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0-preview9.19424.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.0.0-preview9.19424.4" />
   </ItemGroup>
 
 </Project>

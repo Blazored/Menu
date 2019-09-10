@@ -1,34 +1,38 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">Blazor WebAssembly App</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 </div>
 
-<BlazoredMenu>
-    <BlazoredMenuItem>
-        <NavLink href="" Match="NavLinkMatch.All">Home</NavLink>
-    </BlazoredMenuItem>
-    <BlazoredMenuItem>
-        <NavLink href="counter">Counter</NavLink>
-    </BlazoredMenuItem>
-    <BlazoredSubMenu>
-        <HeaderTemplate>
-            <text>Sub Menu</text>
-        </HeaderTemplate>
-        <MenuTemplate>
-            <BlazoredMenuItem>
-                <NavLink href="counter">Counter</NavLink>
-            </BlazoredMenuItem>
-            <BlazoredMenuItem>
-                <NavLink href="fetchdata">Fetch data</NavLink>
-            </BlazoredMenuItem>
-        </MenuTemplate>
-    </BlazoredSubMenu>
-    <BlazoredMenuItem>
-        <NavLink href="fetchdata">Fetch data</NavLink>
-    </BlazoredMenuItem>
-</BlazoredMenu>
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <BlazoredMenu>
+        <BlazoredMenuItem>
+            <NavLink href="" Match="NavLinkMatch.All">Home</NavLink>
+        </BlazoredMenuItem>
+        <BlazoredMenuItem>
+            <NavLink href="counter">Counter</NavLink>
+        </BlazoredMenuItem>
+        <BlazoredSubMenu>
+            <HeaderTemplate>
+                <text>Sub Menu</text>
+            </HeaderTemplate>
+            <MenuTemplate>
+                <BlazoredMenuItem>
+                    <NavLink href="counter">Counter</NavLink>
+                </BlazoredMenuItem>
+                <BlazoredMenuItem>
+                    <NavLink href="fetchdata">Fetch data</NavLink>
+                </BlazoredMenuItem>
+            </MenuTemplate>
+        </BlazoredSubMenu>
+        <BlazoredMenuItem>
+            <NavLink href="fetchdata">Fetch data</NavLink>
+        </BlazoredMenuItem>
+    </BlazoredMenu>
 
-<BlazoredMenu MenuBuilder="@MenuBuilder" />
-
+    <BlazoredMenu MenuBuilder="@MenuBuilder" />
+</div>
 
 @code {
     MenuBuilder MenuBuilder = new MenuBuilder();
@@ -36,10 +40,19 @@
     protected override void OnInitialized()
     {
         MenuBuilder.AddItem(1, "Home", "/", match: NavLinkMatch.All)
-                   .AddItem(2, "Counter", "counter", isEnabled: false)
-                   .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
-                                                               .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
-                                                               .AddItem(3, "You Can't See Me", "invisible", isVisible: false))
-                   .AddItem(4, "FetchData", "fetchdata");
+            .AddItem(2, "Counter", "counter", isEnabled: false)
+            .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
+                .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
+                .AddItem(3, "You Can't See Me", "invisible", isVisible: false))
+            .AddItem(4, "FetchData", "fetchdata");
+    }
+
+    bool collapseNavMenu = true;
+
+    string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
     }
 }

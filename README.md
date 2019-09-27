@@ -6,6 +6,8 @@ A JavaScript free menu library for Blazor and Razor Components applications.
 
 [![Nuget](https://img.shields.io/nuget/v/blazored.menu.svg)](https://www.nuget.org/packages/Blazored.Menu/)
 
+![Screenshot of component in action](screenshot.png)
+
 ## Getting Setup
 You can install the package via the nuget package manager just search for *Blazored.Menu*. You can also install via powershell using the following command.
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using System.Collections.Generic;
 
 namespace Blazored.Menu
@@ -34,5 +35,18 @@ namespace Blazored.Menu
             IsOpen = !IsOpen;
             Icon = IsOpen ? "-" : "+";
         }
+
+        /// <summary>
+        /// Handler for the key down events
+        /// </summary>
+        /// <param name="eventArgs">keyboard event</param>
+        protected void KeyDownHandler(KeyboardEventArgs eventArgs)
+        {
+            if (eventArgs.Key == "Enter" || eventArgs.Key == " " || eventArgs.Key == "Spacebar")
+            {
+                ToggleSubMenu();
+            }
+        }
+
     }
 }

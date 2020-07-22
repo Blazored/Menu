@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazored.Menu", "src\Blazor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{62B26A1B-1131-4DF8-A45F-4ED5067895C8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorClientSide", "samples\BlazorClientSide\BlazorClientSide.csproj", "{C6DA1922-2D23-4DC4-A3E7-74984A5C54B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssembly", "samples\BlazorWebAssembly\BlazorWebAssembly.csproj", "{C6DA1922-2D23-4DC4-A3E7-74984A5C54B6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerSide", "samples\BlazorServerSide\BlazorServerSide.csproj", "{B1FECB40-4770-4EC4-8F7D-29635C29B981}"
 EndProject

@@ -13,8 +13,25 @@ namespace Blazored.Menu
         {
             _menuItems = new List<MenuItem>();
         }
+        private string CssToClose;
+        private string CssToOpen;
 
-        public MenuBuilder AddItem(int position, string title, string link, NavLinkMatch match = NavLinkMatch.Prefix, bool isVisible = true, bool isEnabled = true)
+        public MenuBuilder AddIconCssToClose(string closeCss)
+        {
+            CssToClose = closeCss;
+            return this;
+        }
+        public MenuBuilder AddIconCssToOpen(string openCss) 
+        {
+            CssToOpen = openCss;
+            return this;
+        }
+        public MenuBuilder AddItem(int position,
+                                   string title,
+                                   string link,
+                                   NavLinkMatch match = NavLinkMatch.Prefix,
+                                   bool isVisible = true,
+                                   bool isEnabled = true)
         {
             var menuItem = new MenuItem
             {
@@ -32,7 +49,11 @@ namespace Blazored.Menu
             return this;
         }
 
-        public MenuBuilder AddSubMenu(int position, string title, MenuBuilder menuItems, bool isVisible = true, bool isEnabled = true)
+        public MenuBuilder AddSubMenu(int position,
+                                      string title,
+                                      MenuBuilder menuItems,
+                                      bool isVisible = true,
+                                      bool isEnabled = true)
         {
             var menuItem = new MenuItem();
             menuItem.Position = position;
@@ -41,6 +62,8 @@ namespace Blazored.Menu
             menuItem.MenuItems = menuItems;
             menuItem.IsVisible = isVisible;
             menuItem.IsEnabled = isEnabled;
+            menuItem.IconCssToClose = CssToClose;
+            menuItem.IconCssToOpen = CssToOpen;
 
             _menuItems.Add(menuItem);
             return this;
@@ -48,8 +71,12 @@ namespace Blazored.Menu
 
         internal List<MenuItem> Build(Func<MenuItem, int> orderBy)
         {
-            var menuItems = _menuItems.OrderBy(orderBy);
-
+            var menuItems = _menuItems.OrderBy(orderBy).ToList();
+            menuItems.ForEach(m =>
+            {
+                m.IconCssToClose = CssToClose;
+                m.IconCssToOpen = CssToOpen;
+            });
             return menuItems.ToList();
         }
     }
@@ -64,5 +91,7 @@ namespace Blazored.Menu
         public bool IsSubMenu { get; set; }
         public bool IsVisible { get; set; }
         public bool IsEnabled { get; set; }
+        public string IconCssToOpen { get; set; }
+        public string IconCssToClose { get; set; } 
     }
 }

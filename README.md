@@ -2,7 +2,7 @@
 
 A JavaScript free menu library for Blazor and Razor Components applications.
 
-[![Build Status](https://dev.azure.com/blazored/Menu/_apis/build/status/Blazored.Menu?branchName=master)](https://dev.azure.com/blazored/Menu/_build/latest?definitionId=7&branchName=master)
+[![Build & Test Main](https://github.com/Blazored/Menu/actions/workflows/ci-main.yml/badge.svg)](https://github.com/Blazored/Menu/actions/workflows/ci-main.yml)
 
 [![Nuget](https://img.shields.io/nuget/v/blazored.menu.svg)](https://www.nuget.org/packages/Blazored.Menu/)
 

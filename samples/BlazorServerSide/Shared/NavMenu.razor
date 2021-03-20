@@ -2,14 +2,30 @@
     <a class="navbar-brand" href="">Blazor Server App</a>
 </div>
 
-<BlazoredMenu>
+<BlazoredMenu IconClassToClose="oi oi-arrow-circle-top pt-3"
+              IconClassToOpen="oi oi-arrow-circle-bottom pt-3">
     <BlazoredMenuItem>
         <NavLink href="" Match="NavLinkMatch.All">Home</NavLink>
     </BlazoredMenuItem>
     <BlazoredMenuItem>
         <NavLink href="counter">Counter</NavLink>
     </BlazoredMenuItem>
-    <BlazoredSubMenu Header="Sub Menu">
+    <BlazoredSubMenu>
+        <HeaderTemplate>
+            <text>Sub Menu (Global icon)</text>
+        </HeaderTemplate>
+        <MenuTemplate>
+            <BlazoredMenuItem>
+                <NavLink href="counter"><i class="oi oi-microphone position-sticky"/> Counter</NavLink>
+            </BlazoredMenuItem>
+            <BlazoredMenuItem>
+                <NavLink href="fetchdata">Fetch data</NavLink>
+            </BlazoredMenuItem>
+        </MenuTemplate>
+    </BlazoredSubMenu>
+    <BlazoredSubMenu Header="Sub Menu"
+                     IconClassToOpen="oi oi-caret-bottom pt-3"
+                     IconClassToClose="oi oi-caret-top pt-3">
         <MenuTemplate>
             <BlazoredMenuItem>
                 <NavLink href="counter">Counter</NavLink>
@@ -37,6 +53,9 @@
                    .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
                                                                .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
                                                                .AddItem(3, "You Can't See Me", "invisible", isVisible: false))
-                   .AddItem(4, "FetchData", "fetchdata");
+                   .AddItem(4, "FetchData", "fetchdata")
+                   .AddIconCssToClose("oi oi-chevron-top pt-3")
+                   .AddIconCssToOpen("oi oi-chevron-bottom pt-3")  
+                   ;
     }
 }

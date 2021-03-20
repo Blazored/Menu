@@ -2,14 +2,29 @@
     <a class="navbar-brand" href="">Blazor Wasm</a>
 </div>
 
-<BlazoredMenu>
+<BlazoredMenu IconClassToClose="oi oi-arrow-circle-top pt-3"
+              IconClassToOpen="oi oi-arrow-circle-bottom pt-3">
     <BlazoredMenuItem>
         <NavLink href="" Match="NavLinkMatch.All">Home</NavLink>
     </BlazoredMenuItem>
     <BlazoredMenuItem>
         <NavLink href="counter">Counter</NavLink>
     </BlazoredMenuItem>
-    <BlazoredSubMenu>
+    <BlazoredSubMenu >
+        <HeaderTemplate>
+            <text>Sub Menu (Global icon)</text>
+        </HeaderTemplate>
+        <MenuTemplate>
+            <BlazoredMenuItem>
+                <NavLink href="counter">Counter</NavLink>
+            </BlazoredMenuItem>
+            <BlazoredMenuItem>
+                <NavLink href="fetchdata">Fetch data</NavLink>
+            </BlazoredMenuItem>
+        </MenuTemplate>
+    </BlazoredSubMenu>
+    <BlazoredSubMenu IconClassToClose="oi oi-collapse-up pt-3"
+                     IconClassToOpen="oi oi-collapse-down pt-3">
         <HeaderTemplate>
             <text>Sub Menu</text>
         </HeaderTemplate>
@@ -40,6 +55,9 @@
                    .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
                                                                .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
                                                                .AddItem(3, "You Can't See Me", "invisible", isVisible: false))
-                   .AddItem(4, "FetchData", "fetchdata");
+                   .AddItem(4, "FetchData", "fetchdata")
+                   .AddIconCssToClose("oi oi-cloud-upload pt-3")
+                   .AddIconCssToOpen("oi oi-cloud-download pt-3")
+;
     }
 }

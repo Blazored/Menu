@@ -10,6 +10,10 @@ Samples of a multi-level submenu below:
 
 <hr />
 
+@*<BlazoredMenu MenuBuilder="@MenuBuilder2" />*@
+
+<hr />
+
 @code {
     MenuBuilder MenuBuilder1 = new MenuBuilder();
     MenuBuilder MenuBuilder2 = new MenuBuilder();
@@ -32,4 +36,22 @@ Samples of a multi-level submenu below:
                 .AddSubMenu(4, "another subsubmenu", new MenuBuilder()
                     .AddItem(1, "Counter", "counter")))
             .AddItem(5, "FetchData", "fetchdata");
+
+        MenuBuilder2
+            .AddIconCssToClose("oi oi-chevron-top pt-3")
+            .AddIconCssToOpen("oi oi-chevron-bottom pt-3")
+            .AddItem(1, "Home", "/", match: NavLinkMatch.All)
+            .AddItem(2, "Counter", "counter", isEnabled: false)
+            .AddSubMenu(3, "1st level submenu", new MenuBuilder()
+                .AddItem(1, "Counter", "counter")
+                .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
+                .AddItem(3, "You Can't See Me", "invisible", isVisible: false)
+                .AddSubMenu(4, "2nd level submenu", new MenuBuilder()
+                    .AddItem(1, "Counter", "counter"))
+                    .AddSubMenu(2, "3rd level submenu", new MenuBuilder()
+                        .AddItem(1, "Counter", "counter")
+                        .AddSubMenu(2, "4th level submenu", new MenuBuilder()
+                            .AddItem(1, "Counter", "counter"))))
+            .AddItem(4, "FetchData", "fetchdata");
+    }
 }

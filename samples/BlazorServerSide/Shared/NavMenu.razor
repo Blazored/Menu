@@ -16,7 +16,7 @@
         </HeaderTemplate>
         <MenuTemplate>
             <BlazoredMenuItem>
-                <NavLink href="counter"><i class="oi oi-microphone position-sticky"/> Counter</NavLink>
+                <NavLink href="counter"><i class="oi oi-microphone position-sticky" /> Counter</NavLink>
             </BlazoredMenuItem>
             <BlazoredMenuItem>
                 <NavLink href="fetchdata">Fetch data</NavLink>
@@ -40,7 +40,11 @@
     </BlazoredMenuItem>
 </BlazoredMenu>
 
+<hr />
+
 <BlazoredMenu MenuBuilder="@MenuBuilder" />
+
+<hr />
 
 
 @code {
@@ -48,14 +52,15 @@
 
     protected override void OnInitialized()
     {
-        MenuBuilder.AddItem(1, "Home", "/", match: NavLinkMatch.All)
-                   .AddItem(2, "Counter", "counter", isEnabled: false)
-                   .AddSubMenu(3, "Sub Menu", new MenuBuilder().AddItem(1, "Counter", "counter")
-                                                               .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
-                                                               .AddItem(3, "You Can't See Me", "invisible", isVisible: false))
-                   .AddItem(4, "FetchData", "fetchdata")
-                   .AddIconCssToClose("oi oi-chevron-top pt-3")
-                   .AddIconCssToOpen("oi oi-chevron-bottom pt-3")  
-                   ;
+        MenuBuilder
+            .AddIconCssToClose("oi oi-chevron-top pt-3")
+            .AddIconCssToOpen("oi oi-chevron-bottom pt-3")
+            .AddItem(1, "Home", "/", match: NavLinkMatch.All)
+            .AddItem(2, "Counter", "counter", isEnabled: false)
+            .AddSubMenu(3, "Sub Menu", new MenuBuilder()
+                .AddItem(1, "Counter", "counter")
+                .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
+                .AddItem(3, "You Can't See Me", "invisible", isVisible: false))
+            .AddItem(4, "FetchData", "fetchdata");
     }
 }

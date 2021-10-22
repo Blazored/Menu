@@ -3,3 +3,33 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<hr />
+
+<h2>Multi-sublevel menu sample:</h2>
+
+<BlazoredMenu MenuBuilder="@MenuBuilder" />
+
+@code {
+    MenuBuilder MenuBuilder = new MenuBuilder();
+
+    protected override void OnInitialized()
+    {
+        MenuBuilder
+            .AddItem(1, "Home", "/", match: NavLinkMatch.All)
+            .AddItem(2, "Counter", "counter", isEnabled: false)
+            .AddSubMenu(3, "1st level submenu", new MenuBuilder()
+                .AddItem(1, "Counter", "counter")
+                .AddItem(2, "Fetch Data", "fetchdata", isEnabled: false)
+                .AddItem(3, "You Can't See Me", "invisible", isVisible: false)
+                .AddSubMenu(4, "2nd level submenu", new MenuBuilder()
+                    .AddItem(1, "Counter", "counter")
+                    .AddSubMenu(2, "3rd level submenu", new MenuBuilder()
+                        .AddItem(1, "Counter", "counter")
+                        .AddSubMenu(2, "4th level submenu", new MenuBuilder()
+                            .AddItem(1, "Counter", "counter")))))
+            .AddItem(4, "FetchData", "fetchdata")
+            .AddIconCssToClose("oi oi-chevron-top pt-3")
+            .AddIconCssToOpen("oi oi-chevron-bottom pt-3");
+    }
+}

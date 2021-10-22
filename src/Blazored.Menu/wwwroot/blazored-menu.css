@@ -54,13 +54,13 @@
         padding-bottom: .75rem;
     }
 
-.blazored-sub-menu {
-    display: none;
-    padding: 0;
-    margin-left: 1rem;
-    list-style: none;
-}
+    .blazored-sub-menu-header > .blazored-sub-menu {
+        display: none;
+        padding: 0;
+        margin-left: 1rem;
+        list-style: none;
+    }
 
-.blazored-sub-menu-header.open .blazored-sub-menu {
-    display: block;
-}
+    .blazored-sub-menu-header.open > .blazored-sub-menu {
+        display: block;
+    }
